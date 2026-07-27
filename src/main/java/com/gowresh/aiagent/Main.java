@@ -1,27 +1,20 @@
 package com.gowresh.aiagent;
 
-import com.microsoft.playwright.Browser;
-import com.microsoft.playwright.BrowserType;
-import com.microsoft.playwright.Page;
-import com.microsoft.playwright.Playwright;
+import com.gowresh.aiagent.browser.BrowserManager;
 
 public class Main {
     public static void main(String[] args) {
 
-        try (Playwright playwright = Playwright.create()) {
+        BrowserManager browser = new BrowserManager();
 
-            Browser browser = playwright.chromium().launch(
-                    new BrowserType.LaunchOptions().setHeadless(false));
+        browser.launch();
 
-            Page page = browser.newPage();
+        browser.navigate("https://testautomationpractice.blogspot.com/");
 
-            page.navigate("https://testautomationpractice.blogspot.com/");
+        System.out.println(browser.getTitle());
 
-            System.out.println(page.title());
+        browser.takeScreenshot();
 
-            page.screenshot(new Page.ScreenshotOptions().setPath(java.nio.file.Paths.get("homepage.png")));
-
-            browser.close();
-        }
+        browser.close();
     }
 }
