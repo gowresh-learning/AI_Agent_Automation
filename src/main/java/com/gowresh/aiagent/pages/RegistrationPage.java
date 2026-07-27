@@ -3,40 +3,43 @@ package com.gowresh.aiagent.pages;
 import com.gowresh.aiagent.browser.BrowserManager;
 import com.gowresh.aiagent.locators.RegistrationPageLocators;
 import com.gowresh.aiagent.models.RegistrationData;
+import com.gowresh.aiagent.components.*;
 
-public class RegistrationPage {
-    private final BrowserManager browser;
+public class RegistrationPage extends BasePage{
 
     public RegistrationPage(BrowserManager browser) {
-        this.browser = browser;
+        super(browser);
     }
 
     public void enterName(String name) {
-        browser.fill(RegistrationPageLocators.NAME, name);
+        textBox.enterText(RegistrationPageLocators.NAME, name);
     }
 
     public void enterEmail(String email) {
-        browser.fill(RegistrationPageLocators.EMAIL, email);
+        textBox.enterText(RegistrationPageLocators.EMAIL, email);
     }
 
     public void enterPhone(String phone) {
-        browser.fill(RegistrationPageLocators.PHONE, phone);
+        textBox.enterText(RegistrationPageLocators.PHONE, phone);
     }
 
     public void enterAddress(String address) {
-        browser.fill(RegistrationPageLocators.ADDRESS, address);
+        textBox.enterText(RegistrationPageLocators.ADDRESS, address);
     }
 
     public void selectMale() {
-        browser.check(RegistrationPageLocators.MALE);
+        radioButton.select(RegistrationPageLocators.MALE);
     }
 
     public void selectFemale() {
-        browser.check(RegistrationPageLocators.FEMALE);
+        radioButton.select(RegistrationPageLocators.FEMALE);
     }
 
     public void selectCountry(String country) {
-        browser.selectOption(RegistrationPageLocators.COUNTRY, country);
+        dropdown.selectByVisibleText(
+                RegistrationPageLocators.COUNTRY,
+                country
+        );
     }
 
     public void fillForm(RegistrationData data) {
