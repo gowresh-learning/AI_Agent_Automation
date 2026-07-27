@@ -2,6 +2,7 @@ package com.gowresh.aiagent.tests;
 
 import com.gowresh.aiagent.browser.BrowserManager;
 import com.gowresh.aiagent.config.Config;
+import com.gowresh.aiagent.models.RegistrationData;
 import com.gowresh.aiagent.pages.RegistrationPage;
 
 public class AutomationRunner {
@@ -15,10 +16,16 @@ public class AutomationRunner {
 
         RegistrationPage registration = new RegistrationPage(browser);
 
-        registration.enterName("John Doe");
-        registration.enterEmail("john@test.com");
-        registration.enterPhone("9876543210");
-        registration.enterAddress("New York");
+        RegistrationData data = new RegistrationData();
+
+        data.setName("John Doe");
+        data.setEmail("john@test.com");
+        data.setPhone("9876543210");
+        data.setAddress("New York");
+        data.setGender("Male");
+        data.setCountry("India");
+
+        registration.fillForm(data);
 
         browser.waitFor(3000);
 
