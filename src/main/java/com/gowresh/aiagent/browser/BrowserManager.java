@@ -1,5 +1,6 @@
 package com.gowresh.aiagent.browser;
 
+import com.gowresh.aiagent.config.Config;
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserType;
 import com.microsoft.playwright.Page;
@@ -12,7 +13,7 @@ public class BrowserManager {
 
     public void launch() {
         playwright = Playwright.create();
-        browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
+        browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(Config.HEADLESS));
         page = browser.newPage();
     }
 
@@ -38,4 +39,22 @@ public class BrowserManager {
         page.screenshot(new Page.ScreenshotOptions().setPath(java.nio.file.Paths.get(page.title())));
     }
 
+    public void click(String locator) {
+        page.locator(locator).click();
+    }
+    public void fill(String locator, String value) {
+        page.locator(locator).fill(value);
+    }
+
+    public String getText(String locator) {
+        return page.locator(locator).textContent();
+    }
+
+    public boolean isVisible(String locator) {
+        return page.locator(locator).isVisible();
+    }
+
+    public void waitFor(int milliseconds) {
+        page.waitForTimeout(milliseconds);
+    }
 }
