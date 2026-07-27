@@ -31,6 +31,5 @@ public class AutomationRunner {
         browser.waitFor(3000);
         browser.close();
 
-
     }
 }
