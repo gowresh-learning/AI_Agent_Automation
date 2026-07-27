@@ -1,6 +1,7 @@
 package com.gowresh.aiagent.components;
 
 import com.gowresh.aiagent.browser.BrowserManager;
+import com.gowresh.aiagent.exceptions.FrameworkException;
 
 public class RadioButton {
     private final BrowserManager browser;
@@ -10,6 +11,16 @@ public class RadioButton {
     }
 
     public void select(String locator) {
-        browser.click(locator);
+        try {
+
+            browser.check(locator);
+
+        } catch (Exception e) {
+
+            throw new FrameworkException(
+                    "Failed to select radio button: " + locator,
+                    e);
+
+        }
     }
 }

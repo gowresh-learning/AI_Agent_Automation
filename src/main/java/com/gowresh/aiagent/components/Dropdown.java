@@ -1,6 +1,7 @@
 package com.gowresh.aiagent.components;
 
 import com.gowresh.aiagent.browser.BrowserManager;
+import com.gowresh.aiagent.exceptions.FrameworkException;
 
 public class Dropdown {
     private final BrowserManager browser;
@@ -10,6 +11,18 @@ public class Dropdown {
     }
 
     public void selectByVisibleText(String locator, String value) {
-        browser.selectOption(locator, value);
+
+        try {
+
+            browser.selectOption(locator, value);
+
+        } catch (Exception e) {
+
+            throw new FrameworkException(
+                    "Failed to select '" + value +
+                            "' from locator: " + locator,
+                    e);
+
+        }
     }
 }
