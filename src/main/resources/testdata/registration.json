@@ -1,0 +1,8 @@
+{
+  "name": "John Doe",
+  "email": "john@test.com",
+  "phone": "9876543210",
+  "address": "New York",
+  "gender": "MALE",
+  "country": "India"
+}

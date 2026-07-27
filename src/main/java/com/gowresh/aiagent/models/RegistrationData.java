@@ -57,4 +57,7 @@ public class RegistrationData {
     private String address;
     private String gender;
     private String country;
+
+    public RegistrationData() {
+    }
 }
