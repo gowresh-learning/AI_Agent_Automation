@@ -1,21 +1,11 @@
 package com.gowresh.aiagent;
 
-import com.gowresh.aiagent.browser.BrowserManager;
-import com.gowresh.aiagent.config.Config;
+import com.gowresh.aiagent.tests.AutomationRunner;
 
 public class Main {
     public static void main(String[] args) {
 
-        BrowserManager browser = new BrowserManager();
-
-        browser.launch();
-
-        browser.navigate(Config.BASE_URL);
-
-        System.out.println(browser.getTitle());
-
-        browser.takeScreenshot();
-
-        browser.close();
+        AutomationRunner runner = new AutomationRunner();
+        runner.run();
     }
 }

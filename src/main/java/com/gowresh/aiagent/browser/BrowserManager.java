@@ -57,4 +57,14 @@ public class BrowserManager {
     public void waitFor(int milliseconds) {
         page.waitForTimeout(milliseconds);
     }
+
+    public void check(String locator) {
+        page.locator(locator).check();
+    }
+
+    public void selectOption(String locator, String value) {
+        page.locator(locator).selectOption(value);
+    }
+
+
 }
