@@ -26,6 +26,7 @@ public class BrowserManager {
     }
 
     public void close() {
+        page.pause();
         browser.close();
         playwright.close();
     }

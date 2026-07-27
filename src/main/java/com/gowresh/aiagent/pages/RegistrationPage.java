@@ -1,6 +1,7 @@
 package com.gowresh.aiagent.pages;
 
 import com.gowresh.aiagent.browser.BrowserManager;
+import com.gowresh.aiagent.locators.RegistrationPageLocators;
 
 public class RegistrationPage {
     private final BrowserManager browser;
@@ -10,30 +11,30 @@ public class RegistrationPage {
     }
 
     public void enterName(String name) {
-        browser.fill("#name", name);
+        browser.fill(RegistrationPageLocators.NAME, name);
     }
 
     public void enterEmail(String email) {
-        browser.fill("#email", email);
+        browser.fill(RegistrationPageLocators.EMAIL, email);
     }
 
     public void enterPhone(String phone) {
-        browser.fill("#phone", phone);
+        browser.fill(RegistrationPageLocators.PHONE, phone);
     }
 
     public void enterAddress(String address) {
-        browser.fill("#textarea", address);
+        browser.fill(RegistrationPageLocators.ADDRESS, address);
     }
 
     public void selectMale() {
-        browser.check("#male");
+        browser.check(RegistrationPageLocators.MALE);
     }
 
     public void selectFemale() {
-        browser.check("#female");
+        browser.check(RegistrationPageLocators.FEMALE);
     }
 
     public void selectCountry(String country) {
-        browser.selectOption("#country", country);
+        browser.selectOption(RegistrationPageLocators.COUNTRY, country);
     }
 }
