@@ -1,5 +1,6 @@
 package com.gowresh.aiagent.tests;
 
+import com.gowresh.aiagent.assertions.PageAssertions;
 import com.gowresh.aiagent.browser.BrowserManager;
 import com.gowresh.aiagent.config.Config;
 import com.gowresh.aiagent.engine.ExecutionEngine;
@@ -18,6 +19,10 @@ public class AutomationRunner {
         ExecutionEngine engine = new ExecutionEngine(browser);
 
         RegistrationData data = new RegistrationData();
+        PageAssertions assertions = new PageAssertions(browser);
+
+        assertions.verifyTitle(
+                "Automation Testing Practice");
         data.setName("John Doe");
         data.setEmail("john@test.com");
         data.setPhone("9876543210");

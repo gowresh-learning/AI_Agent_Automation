@@ -1,15 +1,21 @@
 package com.gowresh.aiagent.browser;
 
 import com.gowresh.aiagent.config.Config;
+import com.gowresh.aiagent.pages.RegistrationPage;
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserType;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 public class BrowserManager {
     private Playwright playwright;
     private Browser browser;
     private Page page;
+    private static final Logger log =
+            LoggerFactory.getLogger(BrowserManager.class);
 
     public void launch() {
         playwright = Playwright.create();
@@ -66,6 +72,7 @@ public class BrowserManager {
     public void selectOption(String locator, String value) {
         page.locator(locator).selectOption(value);
     }
+
 
 
 }
